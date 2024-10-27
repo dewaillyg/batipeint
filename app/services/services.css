@@ -1,0 +1,23 @@
+/* styles.css ou un autre fichier CSS */
+.service-animation-enter {
+    opacity: 1;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .service-animation-enter-active {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  
+  .service-animation-exit {
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .service-animation-exit-active {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  
