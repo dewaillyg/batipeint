@@ -6,8 +6,8 @@
 :root {
   /* --background: #ffffff;
   --foreground: #171717; */
-  --highlight: #D90E18;
-  --highlight-opacity: lightcoral;
+  --highlight: #f35151;
+  --highlight-opacity: rgb(254, 255, 202);
   --highlight-variant: #6b96d6;
   --stack: whitesmoke;
 
