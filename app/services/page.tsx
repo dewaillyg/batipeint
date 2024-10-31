@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import ServiceGrid from "../components/ServiceGrid";
 import { services } from "../data/servicesData";
 import './services.css';
+import Footer from "../components/Footer";
 
 export default function Services() {
   const servicesPerPage = 2;
@@ -34,7 +35,7 @@ export default function Services() {
 
 
   return (
-    <div className="min-h-dvh">
+    <div className="">
       <Header />
       <div className="bg-highlightOpacity mt-4 p-4">
         <h1 className="text-center italic text-xl font-bold font-fontHighlight">Découvrez</h1>
@@ -69,6 +70,7 @@ export default function Services() {
           </button>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

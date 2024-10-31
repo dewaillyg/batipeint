@@ -16,8 +16,8 @@ const MenuItem = ({ value, itemLevel }: MenuItemsProps) => {
         parentStyle = 'flex items-center bg-highlightVariant w-fit my-px'
         childStyle = 'text-4xl text-highlight pr-4'
     } else {
-        parentStyle = 'flex items-center bg-highlightVariantTwo w-fit my-px'
-        childStyle = 'text-l text-highlight pr-2'
+        parentStyle = 'flex items-center bg-highlightOpacity w-fit my-px'
+        childStyle = 'text-2xl text-highlight pr-2'
     }
 
     return (

@@ -57,6 +57,7 @@ export default function Header() {
                     <MenuItem itemLevel={1} value='Services' />
                     <MenuItem itemLevel={1} value='Réalisations' />
                 </div>
+                <MenuItem itemLevel={2} value='Histoire' />
                 <MenuItem itemLevel={2} value='Contact' />
                 <p className="self-end text-highlightVariant font-fontHighlight">BatiPeint 2024</p>
             </div>

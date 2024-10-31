@@ -27,5 +27,5 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-stack), 'sans-serif';
-  height: 300vh;
+  min-height: 100vh;
 }

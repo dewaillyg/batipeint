@@ -33,6 +33,9 @@ const config: Config = {
         'service-4': "url('/img/service/service-4.jpg')",
         'service-5': "url('/img/service/service-5.jpg')",
         'service-6': "url('/img/service/service-6.jpg')",
+        // MainStory
+        'story': "url('/img/story/main.webp')",
+        'story-story': "url('/img/story/story.webp')",
       }
     },
   },
