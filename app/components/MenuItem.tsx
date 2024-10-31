@@ -13,7 +13,7 @@ const MenuItem = ({ value, itemLevel }: MenuItemsProps) => {
     let childStyle = ''
 
     if (thisLevel === 1) {
-        parentStyle = 'flex items-center bg-highlightVariant w-fit my-px'
+        parentStyle = 'flex items-center bg-highlightOpacity w-fit my-px'
         childStyle = 'text-4xl text-highlight pr-4'
     } else {
         parentStyle = 'flex items-center bg-highlightOpacity w-fit my-px'

@@ -59,7 +59,7 @@ export default function Header() {
                 </div>
                 <MenuItem itemLevel={2} value='Histoire' />
                 <MenuItem itemLevel={2} value='Contact' />
-                <p className="self-end text-highlightVariant font-fontHighlight">BatiPeint 2024</p>
+                <p className="self-end text-highlightOpacity font-fontHighlight">BatiPeint 2024</p>
             </div>
         </header>
     );
