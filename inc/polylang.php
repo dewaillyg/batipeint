@@ -25,7 +25,7 @@ class Polylang
         }
     }
 
-    public static function renderHTML(string $languages): void
+    private static function renderHTML(string $languages): void
     {
         echo <<<HTML
             <div id="language-switcher-container" class="language-switcher-ux d-flex flex-column align-items-center gap-2">
@@ -37,7 +37,7 @@ class Polylang
         HTML;
     }
 
-    public static function renderJS(): void
+    private static function renderJS(): void
     {
         echo <<<JS
         <script>
@@ -62,7 +62,7 @@ class Polylang
         JS;
     }
 
-    public static function renderCSS(): void
+    private static function renderCSS(): void
     {
         echo <<<CSS
         <style>

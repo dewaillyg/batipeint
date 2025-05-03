@@ -1,11 +1,13 @@
 <?php
 require_once get_template_directory() . '/inc/constant.php';
 require_once get_template_directory() . '/inc/resource.php';
+require_once get_template_directory() . '/inc/utils.php';
 require_once get_template_directory() . '/inc/polylang.php';
 
 use Batipeint\Constant;
 use Batipeint\Resource;
 use Batipeint\Polylang;
+use Batipeint\Utils;
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,7 @@ use Batipeint\Polylang;
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: <?= esc_attr(Utils::getColor('primary_color', Constant::getConstant('colors')['primary_color'])) ?>;">
             <div class="container-fluid">
                 <a class="navbar-brand me-3 d-flex align-items-center gap-3" href="#">
                     <img
