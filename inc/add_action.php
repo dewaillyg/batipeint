@@ -5,8 +5,10 @@ namespace Batipeint;
 if (!defined('ABSPATH')) exit;
 
 require_once get_template_directory() . '/inc/resource.php';
+require_once get_template_directory() . '/inc/constant.php';
 
 use Batipeint\Resource;
+use Batipeint\Constant;
 
 class addAction
 {
@@ -15,7 +17,8 @@ class addAction
         add_action('after_setup_theme', [$this, 'batipeintSetup'], 10, 0);
         add_action('init', [$this, 'registerBatipeintStrings'], 10, 0);
         add_action('wp_enqueue_scripts', [$this, 'bootstrap'], 10, 0);
-        
+        add_action('customize_register', [$this, 'registerCustomizer'], 10, 1);
+        add_action('wp_head', [$this, 'injectCSSVariables'], 10, 0);
     }
 
     public function batipeintSetup(): void
@@ -43,11 +46,54 @@ class addAction
             $fullKey = $prefix === ''
                 ? $key
                 : $prefix . '.' . $key;
-            if (is_array($value)) {
+            if (is_array($value))
                 $this->registerBatipeintStringsFromResource($value, $fullKey);
-            } elseif (is_string($value)) {
+            elseif (is_string($value))
                 \pll_register_string($fullKey, $value, 'batipeint');
-            }
         }
+    }
+
+    public static function registerCustomizer(\WP_Customize_Manager $wp_customize): void
+    {
+        $wp_customize->add_section('batipeint_colors', [
+            'title' => Resource::getResource('customizer.colors.title'),
+            'description' => Resource::getResource('customizer.colors.description'),
+            'priority' => 30,
+        ]);
+
+        $colors = [
+            'primary_color' => ['label' => Resource::getResource('customizer.colors.primary'), 'default' => Constant::getConstant('colors')['primary_color']],
+            'secondary_color' => ['label' => Resource::getResource('customizer.colors.secondary'), 'default' => Constant::getConstant('colors')['secondary_color']],
+            'background_color' => ['label' => Resource::getResource('customizer.colors.background'), 'default' => Constant::getConstant('colors')['background_color']],
+            'text_color' => ['label' => Resource::getResource('customizer.colors.text'), 'default' => Constant::getConstant('colors')['text_color']],
+        ];
+
+        foreach ($colors as $ID => $config) {
+            $wp_customize->add_setting($ID, [
+                'default' => $config['default'],
+                'sanitize_callback' => 'sanitize_hex_color',
+            ]);
+
+            $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, $ID, [
+                'label' => $config['label'],
+                'section' => 'batipeint_colors',
+                'settings' => $ID,
+            ]));
+        }
+    }
+
+    public function injectCSSVariables(): void
+    {
+        $vars = [
+            'primary_color' => get_theme_mod('primary_color', Constant::getConstant('colors')['primary_color']),
+            'secondary_color' => get_theme_mod('secondary_color', Constant::getConstant('colors')['secondary_color']),
+            'background_color' => get_theme_mod('background_color', Constant::getConstant('colors')['background_color']),
+            'text_color' => get_theme_mod('text_color', Constant::getConstant('colors')['text_color']),
+        ];
+
+        echo "<style>:root {\n";
+        foreach ($vars as $name => $value)
+            echo "--color-{$name}: {$value};\n";
+        echo "}</style>\n";
     }
 }
