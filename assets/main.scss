@@ -1,0 +1,11 @@
+@use './scss/fonts.scss';
+@use './scss/link.scss';
+@use './scss/title.scss';
+
+body {
+    * {
+        font-family: fonts.$font-body;
+    }
+
+    background-color: var(--color-bg_color);
+}

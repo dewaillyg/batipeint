@@ -9,7 +9,7 @@ class Resource {
         // navbar
         'navbar' => [
             'home' => 'Accueil',
-            'work' => 'Réalisation',
+            'work' => 'Réalisations',
             'about' => 'À propos',
             'contact' => 'Contacter',
         ],

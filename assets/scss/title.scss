@@ -1,0 +1,9 @@
+@use './fonts.scss';
+
+.batipeint-title {
+    font-family: fonts.$font-title;
+}
+
+.batipeint-header-title {
+    color: var(--color-bg_color);
+}

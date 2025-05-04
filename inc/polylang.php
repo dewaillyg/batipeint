@@ -32,7 +32,7 @@ class Polylang
                 <div id="language-data" style="display: none;">
                     {$languages}
                 </div>
-                <div id="language-buttons" class="language-buttons-modern d-flex flex-column flex-wrap justify-content-center gap-2"></div>
+                <div id="language-buttons" class="language-buttons-modern d-flex flex-row flex-md-column flex-wrap justify-content-center gap-2"></div>
             </div>
         HTML;
     }

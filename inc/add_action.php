@@ -17,6 +17,7 @@ class addAction
         add_action('after_setup_theme', [$this, 'batipeintSetup'], 10, 0);
         add_action('init', [$this, 'registerBatipeintStrings'], 10, 0);
         add_action('wp_enqueue_scripts', [$this, 'bootstrap'], 10, 0);
+        add_action('wp_enqueue_scripts', [$this, 'customStyles'], 10, 0);
         add_action('customize_register', [$this, 'registerCustomizer'], 10, 1);
         add_action('wp_head', [$this, 'injectCSSVariables'], 10, 0);
     }
@@ -25,13 +26,18 @@ class addAction
     {
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
-        load_theme_textdomain('batipeint', get_template_directory() . '/languages');
     }
 
     public function bootstrap(): void
     {
         wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', false, null);
         wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
+    }
+
+    public function customStyles(): void
+    {
+        $cssPath = get_template_directory() . '/assets/main.css';
+        wp_enqueue_style('batipeint-style', get_template_directory_uri() . '/assets/main.css', [], filemtime($cssPath));
     }
 
     public function registerBatipeintStrings(): void
@@ -64,8 +70,8 @@ class addAction
         $colors = [
             'primary_color' => ['label' => Resource::getResource('customizer.colors.primary'), 'default' => Constant::getConstant('colors')['primary_color']],
             'secondary_color' => ['label' => Resource::getResource('customizer.colors.secondary'), 'default' => Constant::getConstant('colors')['secondary_color']],
-            'background_color' => ['label' => Resource::getResource('customizer.colors.background'), 'default' => Constant::getConstant('colors')['background_color']],
             'text_color' => ['label' => Resource::getResource('customizer.colors.text'), 'default' => Constant::getConstant('colors')['text_color']],
+            'bg_color' => ['label' => Resource::getResource('customizer.colors.background'), 'default' => Constant::getConstant('colors')['bg_color']],
         ];
 
         foreach ($colors as $ID => $config) {
@@ -87,8 +93,8 @@ class addAction
         $vars = [
             'primary_color' => get_theme_mod('primary_color', Constant::getConstant('colors')['primary_color']),
             'secondary_color' => get_theme_mod('secondary_color', Constant::getConstant('colors')['secondary_color']),
-            'background_color' => get_theme_mod('background_color', Constant::getConstant('colors')['background_color']),
             'text_color' => get_theme_mod('text_color', Constant::getConstant('colors')['text_color']),
+            'bg_color' => get_theme_mod('bg_color', Constant::getConstant('colors')['bg_color']),
         ];
 
         echo "<style>:root {\n";
