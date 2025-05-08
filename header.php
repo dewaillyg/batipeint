@@ -21,7 +21,7 @@ use Batipeint\Utils;
 
 <body style="color: <?= esc_attr(Utils::getColor('text_color', Constant::getConstant('colors')['text_color'])) ?>;">
     <header>
-        <div class="container-fluid"></div>
+        <?php get_template_part('template-parts/topbar'); ?>
         <nav class="navbar navbar-expand-md navbar-light" style="background-color: <?= esc_attr(Utils::getColor('primary_color', Constant::getConstant('colors')['primary_color'])) ?>;">
             <div class="container-fluid">
                 <a class="navbar-brand me-5 d-flex align-items-center gap-3" href="#">
@@ -40,16 +40,16 @@ use Batipeint\Utils;
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mt-2 mt-md-0 align-items-center">
                         <li class="nav-item w-md-auto w-100 batipeint-link-parent">
-                            <a class="nav-link active batipeint-link batipeint-link--metis py-1 text-center text-md-start" aria-current="page" href="#"><?= Resource::getResource('navbar.home') ?></a>
+                            <a class="nav-link active batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center" aria-current="page" href="#"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.home') ?></a>
                         </li>
                         <li class="nav-item w-md-auto w-100 batipeint-link-parent">
-                            <a class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start" href="#"><?= Resource::getResource('navbar.work') ?></a>
+                            <a class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center" href="#"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.work') ?></a>
                         </li>
                         <li class="nav-item w-md-auto w-100 batipeint-link-parent">
-                            <a href="#" class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start"><?= Resource::getResource('navbar.about') ?></a>
+                            <a href="#" class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.about') ?></a>
                         </li>
                         <li class="nav-item w-md-auto w-100 batipeint-link-parent">
-                            <a href="#" class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start"><?= Resource::getResource('navbar.contact') ?></a>
+                            <a href="#" class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.contact') ?></a>
                         </li>
                     </ul>
                     <div class="ms-0 ms-md-3 mt-3 mt-md-0">

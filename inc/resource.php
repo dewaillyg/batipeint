@@ -6,6 +6,11 @@ if (!defined('ABSPATH')) exit;
 
 class Resource {
     public static array $resource = [
+        // topbar
+        'topbar' => [
+            'phone' => '07 70 29 84 03',
+            'phone_link' => 'tel:+33770298403',
+        ],
         // navbar
         'navbar' => [
             'home' => 'Accueil',

@@ -1,7 +1,6 @@
 @use './fonts.scss';
 
-$link-color-active: var(--color-bg_color);
-$link-color: var(--color-text_color);
+$link-color: var(--color-bg_color);
 
 .batipeint-link {
   cursor: pointer;
@@ -25,8 +24,14 @@ $link-color: var(--color-text_color);
     content: '';
   }
 
-  &.active {
-    color: $link-color-active!important;
+  &:not(.active) {
+    i {
+      display: none;
+    }
+  }
+
+  &:active {
+    color: var(--color-bg_color);
   }
 
   @media screen and (max-width: 767px) {

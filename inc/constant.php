@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) exit;
 class Constant {
     public static array $constant = [
         // Images
-        'ID_main_logo' => 13,
+        'ID_main_logo' => 26,
         // Colors
         'colors' => [
             'primary_color' => '#007bff',
