@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * add_action file
+ * 
+ * @package Batipeint
+ * @since 1.0.0
+ * @version 1.0.0
+ * @author Dewailly G.
+ * @link https://github.com/dewaillyg
+ */
+
 namespace Batipeint;
 
 if (!defined('ABSPATH')) exit;

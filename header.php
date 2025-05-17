@@ -1,13 +1,11 @@
 <?php
 require_once get_template_directory() . '/inc/constant.php';
 require_once get_template_directory() . '/inc/resource.php';
-require_once get_template_directory() . '/inc/utils.php';
 require_once get_template_directory() . '/inc/polylang.php';
 
 use Batipeint\Constant;
 use Batipeint\Resource;
 use Batipeint\Polylang;
-use Batipeint\Utils;
 ?>
 
 <!DOCTYPE html>
@@ -19,10 +17,10 @@ use Batipeint\Utils;
     <?php wp_head(); ?>
 </head>
 
-<body style="color: <?= esc_attr(Utils::getColor('text_color', Constant::getConstant('colors')['text_color'])) ?>;">
+<body style="color: var(--color-text_color);">
     <header>
-        <?php get_template_part('template-parts/topbar'); ?>
-        <nav class="navbar navbar-expand-md navbar-light" style="background-color: <?= esc_attr(Utils::getColor('primary_color', Constant::getConstant('colors')['primary_color'])) ?>;">
+        <?php // get_template_part('template-parts/topbar'); ?>
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: var(--color-primary_color);">
             <div class="container-fluid">
                 <a class="navbar-brand me-5 d-flex align-items-center gap-3" href="#">
                     <img
@@ -46,7 +44,7 @@ use Batipeint\Utils;
                             <a class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center" href="#"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.work') ?></a>
                         </li>
                         <li class="nav-item w-md-auto w-100 batipeint-link-parent">
-                            <a href="#" class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.about') ?></a>
+                            <a href="#" class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.service') ?></a>
                         </li>
                         <li class="nav-item w-md-auto w-100 batipeint-link-parent">
                             <a href="#" class="nav-link batipeint-link batipeint-link--metis py-1 text-center text-md-start d-flex align-items-center justify-content-center"><i class="bi bi-caret-right-fill me-1" style="font-size: 10px;"></i><?= Resource::getResource('navbar.contact') ?></a>
@@ -58,4 +56,5 @@ use Batipeint\Utils;
                 </div>
             </div>
         </nav>
+        <?php get_template_part('template-parts/breadcrumb'); ?>
     </header>
