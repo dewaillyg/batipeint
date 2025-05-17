@@ -1,0 +1,26 @@
+.batipeint-home-gallery {
+    &>div {
+        aspect-ratio: 3 / 4;
+
+        .separator {
+            height: 20%;
+        }
+    }
+
+    div:first-child div:first-child {
+        transform: translateX(10%);
+    }
+
+    div:last-child div:last-child {
+        transform: translateX(-10%);
+    }
+
+    div:first-child div:first-child,
+    div:last-child div:last-child {
+        height: 80%;
+    }
+
+    img {
+        object-fit: cover;
+    }
+}
